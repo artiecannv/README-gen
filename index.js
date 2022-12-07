@@ -26,6 +26,7 @@ inquirer
         }
     ])
 
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
@@ -35,3 +36,5 @@ function init() {}
 // Function call to initialize app
 init();
 
+// To format JSON, you would use a template literal (Activities 9, 10, 11, 12)
+// Useful for formatting the README file

@@ -35,7 +35,7 @@ inquirer.prompt(
         {
             type: 'list',
             message: question[2],
-            choices: ['Y', 'N'],
+            choices: [],
             name: 'toC',
             validate: (value) => { if(value){return true;} else {return 'Value needed!'}}
         },
@@ -101,6 +101,7 @@ inquirer.prompt(
         questionsInput,
         repo
     }) => {
+        const template = 
     }
         
         

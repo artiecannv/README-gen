@@ -146,7 +146,8 @@ inquirer.prompt(
       tests,
       questionsInput,
       repo,
-    }) => { // Template of the formatting to be used
+    }) => {
+      // Template of the formatting to be used
       const formatting = `#${title}
         
         ##Description
@@ -197,12 +198,17 @@ inquirer.prompt(
         ##Repository
         
         ${repo}`;
-    }
+    },
+    writeFile(title, formatting)
   )
 );
 
 // TODO: Create a function to write README file
-function writeFile(fileName, data) {}
+function writeFile(fileName, data) {
+  fs.writeFile("README.md", formatting, (err) =>
+    err ? console.log(err) : console.log("Success!")
+  );
+}
 
 // TODO: Create a function to initialize app
 function init() {}

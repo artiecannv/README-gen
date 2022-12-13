@@ -17,8 +17,9 @@ const question = [
   "Enter the GitHub Repository URL, please!",
 ];
 // Questions for README chapters
-inquirer.prompt(
-  [
+
+const readme = () => {
+  return inquirer.prompt([
     {
       type: "input",
       message: question[0],
@@ -44,10 +45,10 @@ inquirer.prompt(
       },
     },
     {
-      type: "list",
+      type: "confirm",
       message: question[2],
-      choices: [],
       name: "toC",
+      default: true,
     },
     {
       type: "input",
@@ -134,7 +135,17 @@ inquirer.prompt(
         }
       },
     },
-  ].then(
+  ]);
+};
+
+// TODO: Create a function to write README file
+function writeFile(fileName, data) {
+  fs.writeFile("README.md", data, (err) =>
+    err ? console.log(err) : console.log("README Generation Successful!")
+  );
+}
+readme()
+  .then(
     ({
       title,
       desc,
@@ -148,73 +159,63 @@ inquirer.prompt(
       repo,
     }) => {
       // Template of the formatting to be used
-      const formatting = `#${title}
+      const formatting = `
+# ${title}
         
-        ##Description
+## Description
         
-        ${desc}
+${desc}
         
-        ##${toC}
+## ${toC}
         
-        - [Installation](#installation)
-        - [Usage](#usage)
-        - [Credits](#credits)
-        - [License](#license)
-        - [Tests](#tests)
-        - [Questions](#questions)
-        - [Repository](#repository)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
+- [Repository](#repository)
      
         
-        ##Installation
+## Installation
 
-        ${install}
+${install}
         
         
-        ##Usage
+## Usage
+ 
+${usage}
+        
+Remember to add your screenshot!
+        
+## Credits
 
-        ${usage}
+${contributors}
         
-        Remember to add your screenshot!
+Remember to link github profiles of any collaborators
+Remember to link tutorials as well
         
-        ##Credits
+## License
+        
+${license}
+        
+## Tests
 
-        ${contributors}
+${tests}
         
-        Remember to link github profiles of any collaborators
-        Remember to link tutorials as well
-        
-        ##License
-        
-        ${license}
-        
-        ##Tests
+## Questions?
 
-        ${tests}
-        
-        ##Questions?
+${questionsInput}
 
-        ${questionsInput}
-
-        ##Repository
+## Repository
         
-        ${repo}`;
-    },
-    writeFile(title, formatting)
+${repo}`;
+      return { formatting, title };
+    }
   )
-);
-
-// TODO: Create a function to write README file
-function writeFile(fileName, data) {
-  fs.writeFile("README.md", formatting, (err) =>
-    err ? console.log(err) : console.log("Success!")
-  );
-}
-
-// TODO: Create a function to initialize app
-function init() {}
+  .then((markUp) => {
+    writeFile(markUp.title, markUp.formatting);
+  })
+  .catch((err) => console.log(err));
 
 // Function call to initialize app
-init();
-
-// To format JSON, you would use a template literal (Activities 9, 10, 11, 12)
-// Useful for formatting the README file

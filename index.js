@@ -166,7 +166,7 @@ readme()
         
 ${desc}
         
-## ${toC}
+## Table of Contents
         
 - [Installation](#installation)
 - [Usage](#usage)

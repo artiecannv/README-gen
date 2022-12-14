@@ -13,10 +13,10 @@ const question = [
   "Which license was used?",
   "Please include the any contributors on the project.",
   "Please list any tests that were done.",
-  "Are there still any questions?",
+  "Are there still any questions? If so contact",
   "Enter the GitHub Repository URL, please!",
 ];
-// Questions for README chapters
+// Questions for README Sections
 
 const readme = () => {
   return inquirer.prompt([
@@ -204,6 +204,8 @@ ${license}
 ${tests}
         
 ## Questions?
+
+Please include github profile for contact purposes
 
 ${questionsInput}
 

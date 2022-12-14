@@ -3,9 +3,9 @@
         
 ## Description
         
-Generates a Professional README.md that fits the criteria of standard README files.
+Generator to create clear, consise, and proper README.md documents that follow professional guidelines
         
-## true
+## Table of Contents
         
 - [Installation](#installation)
 - [Usage](#usage)
@@ -18,18 +18,18 @@ Generates a Professional README.md that fits the criteria of standard README fil
         
 ## Installation
 
-No steps required to install my project!
+In the terminaal, npm install will be needed for the packages.
         
         
 ## Usage
  
-I will be using this for all of my next projects, whether class-based or not.
+I will be using this for every one of my projects in the future, whether with class or not
         
 Remember to add your screenshot!
         
 ## Credits
 
-N/A
+None for this project.
         
 Remember to link github profiles of any collaborators
 Remember to link tutorials as well
@@ -40,12 +40,14 @@ N/A
         
 ## Tests
 
-1) Had an issue with one of my questions being formatted as a list question with no criteria, changed to a 'confirm.'
+None for this project.
         
 ## Questions?
 
-No
+Please include github profile for contact purposes
+
+https://github.com/artiecannv/
 
 ## Repository
         
-N/A
+https://github.com/artiecannv/README-gen

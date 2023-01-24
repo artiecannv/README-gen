@@ -219,5 +219,3 @@ ${repo}`;
     writeFile(markUp.title, markUp.formatting);
   })
   .catch((err) => console.log(err));
-
-// Function call to initialize app
